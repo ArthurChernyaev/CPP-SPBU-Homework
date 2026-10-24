@@ -2,11 +2,11 @@
 #include <iostream>
 
 int main() {
-    const int W = 41, H = 21;                
-    const double XMIN = -1.5, XMAX = 1.5;
-    const double YMIN = -1.5, YMAX = 1.5;
-    const double DX = (XMAX - XMIN) / (W - 1);
-    const double DY = (YMAX - YMIN) / (H - 1); 
+    int W = 41, H = 21;                
+    double XMIN = -1.5, XMAX = 1.5;
+    double YMIN = -1.5, YMAX = 1.5;
+    double DX = (XMAX - XMIN) / (W - 1);
+    double DY = (YMAX - YMIN) / (H - 1); 
 
     for (int row = 0; row < H; ++row) {
         double y = YMAX - row * DY; 

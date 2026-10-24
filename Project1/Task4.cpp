@@ -1,23 +1,33 @@
 #include <iostream>
 
 int main() {
-    int height, count;
-    std::cin >> height >> count;
+    int n, m;
+    std::cin >> n >> m;
 
-    const int GAP = 1;               
+    for (int i = 1; i <= 2 * n - 1; i++) {
+        int stars;
 
-    auto row = [&](int i) {
-        for (int j = 0; j < height - i; ++j) std::cout << ' ';
-        for (int j = 0; j < 2 * i - 1; ++j)  std::cout << '*';
-        };
-
-    for (int rowIdx = 0; rowIdx < 2 * height - 1; ++rowIdx) {
-        int i = (rowIdx < height) ? (rowIdx + 1) : (2 * height - 1 - rowIdx);
-        for (int r = 0; r < count; ++r) {
-            row(i);
-            if (r != count - 1)              
-                for (int g = 0; g < GAP; ++g) std::cout << ' ';
+        if (i <= n) {
+            stars = 2 * i - 1;
         }
+        else {
+            stars = 2 * (2 * n - i) - 1;
+        }
+
+        for (int j = 0; j < m; j++) {
+            for (int k = 0; k < n - (stars + 1) / 2; k++) {
+                std::cout << ' ';
+            }
+
+            for (int k = 0; k < stars; k++) {
+                std::cout << '*';
+            }
+
+            std::cout << "  ";
+        }
+
         std::cout << '\n';
     }
+
+    return 0;
 }
